@@ -1,0 +1,17 @@
+.card, thead {
+    background-color: #f3f3f3 !important;
+}
+
+label {
+    font-weight: bold;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+}
+
+.disclaimer-message {
+    font-style: italic;
+    color: #aaa;
+}

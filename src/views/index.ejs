@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Palomar Code Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <%- include('partials/navigation.ejs') %>
+        <div class="container mt-5">
+            <div class="jumbotron pt-3">
+                <h1 class="display-4">Palomar Code Test</h1>
+                <p class="lead">Query a REST API to get a list of Movies. Given an integer, limit, return the top limit Movie names ordered 
+                    increasing by rating, then decreasing by the Number of Votes for those that have the same rating counts.</p>
+                <hr class="my-4">
+                <p>
+                    To access the collection of Movies, make an HTTP GET request to: <em>https://worstmovies.azurewebsites.net/worstMovies?page=[pageNumber]</pageNumber></em><br /><br />
+                    Where <pageNumber> is an integer where 1 <= pageNumber <= total_pages. total_pages is one of the fields in the JSON data. <br />
+                    The response is a JSON object with the following 5 fields: 
+                    <ul>
+                        <li><strong>page:</strong> The current page of the results </li>
+                        <li><strong>per_page:</strong> The maximum number of records returned per page.</li>
+                        <li><strong>total:</strong> The total number of records on all pages of the result. </li>
+                        <li><strong>total_pages:</strong> The total number of pages with results. </li>
+                        <li>
+                            <strong>data:</strong> An array of objects containing records returned on the requested page Each record in data has the following schema. 
+                            <ul>
+                                <li><strong>Name:</strong> Title of the Movie </li>
+                                <li><strong>Rating:</strong> Rating of the Movie, may be a positive Integer </li>
+                                <li><strong>Votes:</strong> Number of times a movie has been voted on, may be a psoitive Integer • Director: Director of the movie, maybe null </li>
+                                <li><strong>Writer:</strong> Writer of the movie, maybe null </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br />
+                    Sort the movies by increasing in rating, then decreasing by number of votes for the movies that have the  same rating. <br /><br />
+                    <strong>Function Description:</strong> <br />
+                    Complete the function <em>mostPopularWorstMovies</em> <br /><br />
+                    <em>mostPopularWorstMovies</em> has the following parameter(s): <br />
+                    <strong>int limit:</strong> the number of movies to return <br /><br />
+                    <strong>Returns:</strong> <br />
+                    <strong>string[k]:</strong> the names of movies <br /><br />
+                    <strong>Sample Case:</strong> <br />
+                    mostPopularWorstMovies(2) <br /><br />
+                    <strong>Sample Output:</strong> <br />
+                    Manos: The Hands of Fate (1966)<br />
+                    Nukie (1987)
+                </p>
+                <a class="btn btn-primary float-right" href="/movies" role="button">Begin Search</a>
+            </div>
+        </div>
+    </body>
+</html>

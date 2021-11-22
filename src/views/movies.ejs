@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Most Popular Worst Movies Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <%- include('partials/navigation.ejs') %>
+        <div id="app" class="container mt-5">
+            <div class="row card p-3">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Most Popular Worst Movies Search</h3>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-lg-3">
+                            <div class="form-group">
+                                <label for="pagesInput" class="required">Page </label>
+                                <input v-model="selectedPage" id="pagesInput" type="number" class="form-control" min="1" max="5">
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="form-group">
+                                <label for="movieCountInput" class="required">Movie Result Count </label>
+                                <input v-model="selectedCount" id="movieCountInput" type="number" class="form-control" min="0" max="10">
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <label>&nbsp;</label>
+                            <button @click="resetSearch()" class="btn btn-block btn-secondary">Reset Search</button>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <label>&nbsp;</label>
+                            <button @click="searchMovies()" v-bind:disabled="!searchEnabled" class="btn btn-block btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="movieList" v-if="moviesFound">
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Votes</th>
+                            <th scope="col">Writer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="movie in moviesList" :key="movie">
+                            <td>{{ movie.Name }}</td>
+                            <td>{{ movie.Rating }}</td>
+                            <td>{{ movie.Votes }}</td>
+                            <td>{{ movie.Writer }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-else class="text-center disclaimer-message mt-5">
+                No Movies Found, Please Search For Movies.
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
