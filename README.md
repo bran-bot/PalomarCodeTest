@@ -26,7 +26,6 @@ This example application uses:
 * [Node.js](https://nodejs.org)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Express](https://expressjs.com/)
-* [PostgreSQL](https://www.postgresql.org/)
 * [EJS](https://github.com/mde/ejs)
 * [Vue](https://vuejs.org/)
 * [Axios](https://github.com/axios/axios)
